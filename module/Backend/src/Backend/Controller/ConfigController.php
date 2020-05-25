@@ -17,7 +17,7 @@ class ConfigController extends AbstractActionController
     {
         $this->authorize('admin.config');
 
-        $serviceManager = $this->getServiceLocator();
+        $serviceManager = @$this->getServiceLocator();
         $optionManager = $serviceManager->get('Base\Manager\OptionManager');
         $formElementManager = $serviceManager->get('FormElementManager');
 
@@ -74,7 +74,7 @@ class ConfigController extends AbstractActionController
             $info = $this->params()->fromPost('cf-info');
 
             if ($info && strlen($info) > 32) {
-                $optionManager = $this->getServiceLocator()->get('Base\Manager\OptionManager');
+                $optionManager = @$this->getServiceLocator()->get('Base\Manager\OptionManager');
                 $optionManager->set('subject.about', $info, $this->config('i18n.locale'));
 
                 $this->flashMessenger()->addSuccessMessage('Info page has been saved');
@@ -94,7 +94,7 @@ class ConfigController extends AbstractActionController
             $help = $this->params()->fromPost('cf-help');
 
             if ($help && strlen($help) > 32) {
-                $optionManager = $this->getServiceLocator()->get('Base\Manager\OptionManager');
+                $optionManager = @$this->getServiceLocator()->get('Base\Manager\OptionManager');
                 $optionManager->set('subject.help', $help, $this->config('i18n.locale'));
 
                 $this->flashMessenger()->addSuccessMessage('Help page has been saved');
@@ -110,7 +110,7 @@ class ConfigController extends AbstractActionController
     {
         $this->authorize('admin.config');
 
-        $serviceManager = $this->getServiceLocator();
+        $serviceManager = @$this->getServiceLocator();
         $optionManager = $serviceManager->get('Base\Manager\OptionManager');
         $formElementManager = $serviceManager->get('FormElementManager');
 
@@ -129,6 +129,7 @@ class ConfigController extends AbstractActionController
                 $activation = $data['cf-activation'];
                 $calendarDays = $data['cf-calendar-days'];
                 $calendarDayExceptions = $data['cf-calendar-day-exceptions'];
+                $hoursBetweenBookings = $data['cf-hours-between-bookings'];
 
                 $locale = $this->config('i18n.locale');
 
@@ -139,6 +140,7 @@ class ConfigController extends AbstractActionController
                 $optionManager->set('service.user.activation', $activation);
                 $optionManager->set('service.calendar.days', $calendarDays);
                 $optionManager->set('service.calendar.day-exceptions', $calendarDayExceptions);
+                $optionManager->set('service.user.hoursBetweenBookings', $hoursBetweenBookings);
 
                 $this->flashMessenger()->addSuccessMessage('Configuration has been saved');
             } else {
@@ -154,6 +156,7 @@ class ConfigController extends AbstractActionController
             $behaviourForm->get('cf-activation')->setValue($optionManager->get('service.user.activation', 'email'));
             $behaviourForm->get('cf-calendar-days')->setValue($optionManager->get('service.calendar.days', '4'));
             $behaviourForm->get('cf-calendar-day-exceptions')->setValue($optionManager->get('service.calendar.day-exceptions'));
+            $behaviourForm->get('cf-hours-between-bookings')->setValue($optionManager->get('service.user.hoursBetweenBookings', '0'));
         }
 
         return array(
@@ -165,7 +168,7 @@ class ConfigController extends AbstractActionController
     {
         $this->authorize('admin.config');
 
-        $serviceManager = $this->getServiceLocator();
+        $serviceManager = @$this->getServiceLocator();
         $optionManager = $serviceManager->get('Base\Manager\OptionManager');
         $formElementManager = $serviceManager->get('FormElementManager');
 
@@ -266,7 +269,7 @@ class ConfigController extends AbstractActionController
     {
         $this->authorize('admin.config');
 
-        $serviceManager = $this->getServiceLocator();
+        $serviceManager = @$this->getServiceLocator();
         $formElementManager = $serviceManager->get('FormElementManager');
 
         $statusColorsForm = $formElementManager->get('Backend\Form\Config\BehaviourStatusColorsForm');
