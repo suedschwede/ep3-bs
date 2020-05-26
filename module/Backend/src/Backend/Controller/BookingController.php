@@ -215,12 +215,12 @@ class BookingController extends AbstractActionController
             $editForm->get('bf-quantity')->setLabelOption('disable_html_escape', true);
 
             $playerNameNotes = '';
-
-            foreach (unserialize($booking->getMeta('player-names')) as $i => $playerName) {
+            if ($booking->get('quantity') > 1) {
+              foreach (unserialize($booking->getMeta('player-names')) as $i => $playerName) {
                 $playerNameNotes .= sprintf('<div>%s. %s</div>',
                     $i + 1, $playerName['value']);
-            }
-
+              }
+            }    
             $editForm->get('bf-quantity')->setOption('notes', $playerNameNotes);
         }
 
