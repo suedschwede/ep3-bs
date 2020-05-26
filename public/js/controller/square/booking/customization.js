@@ -1,4 +1,5 @@
 (function() {
+    var urlProvider;
 
     $(document).ready(function() {
 
@@ -12,6 +13,13 @@
         $(".sb-player-names input").on("change keyup focusout", onPlayerNameUpdate);
 
         $(".sb-product").on("change", onProductChange);
+                      
+        var searchInput = $("#sb-player-name-2");
+
+        searchInput.autocomplete({
+            "minLength": 1,
+            "source": searchInput.data("autocomplete-url")
+        });
 
     });
 

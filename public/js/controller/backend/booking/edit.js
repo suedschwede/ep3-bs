@@ -16,7 +16,15 @@
             "minLength": 1,
             "source": urlProvider.data("user-autocomplete-url")
         });
+        
+        var playernamesInput = $("#bf-playernames");
 
+        playernamesInput.autocomplete({
+            "minLength": 1,
+            "source": urlProvider.data("user-autocomplete-url")
+        });
+        
+        
         /* Datepicker */
 
         $("#bf-date-start, #bf-date-end").datepicker();
