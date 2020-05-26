@@ -32,7 +32,7 @@ class Update extends AbstractPlugin
     }
 
     public function __invoke($rid, $newUser, $newTimeStart, $newTimeEnd, $newDate, $newSquare,
-        $newStatusBilling, $newQuantity, $newNotes = null, $mode = null)
+        $newStatusBilling, $newQuantity, $newPlayerNamesText, $newNotes = null, $mode = null)
     {
         $controller = $this->getController();
         $controller->authorize('admin.booking');
@@ -86,12 +86,16 @@ class Update extends AbstractPlugin
                 }
 
                 /* Save booking */
-
+                
+		$newPlayerNames = explode("\n", $newPlayerNamesText);
+		$newPlayerNames = array_map(function ($name) { return ['value' => $name]; }, $newPlayerNames);
+				
                 $booking->set('uid', $user->need('uid'));
                 $booking->set('sid', $square->need('sid'));
                 $booking->set('status_billing', $newStatusBilling);
                 $booking->set('quantity', $newQuantity);
                 $booking->setMeta('notes', $newNotes);
+                $booking->setMeta('player-names', serialize($newPlayerNames));
 
                 $this->bookingManager->save($booking);
             }

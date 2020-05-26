@@ -182,6 +182,17 @@ class EditForm extends Form
 
         ));
 
+        $this->add(array(
+            'name' => 'bf-playernames',
+            'type' => 'Text',
+            'attributes' => array(
+                'id' => 'bf-playernames',
+                'style' => 'width: 110px;',
+            ),
+            'options' => array(
+                'label' => 'Player\'s names',
+            ),
+        ));
 
 
         $this->add(array(
@@ -316,7 +327,7 @@ class EditForm extends Form
 
                 'id' => 'bf-notes',
 
-                'style' => 'width: 250px; height: 48px;',
+                'style' => 'width: 150px; height: 48px;',
 
             ),
 
@@ -431,6 +442,14 @@ class EditForm extends Form
                 ),
 
             ),
+            
+            'bf-playernames' => array(
+                'required' => false,
+                'filters' => array(
+                    array('name' => 'StringTrim'),
+                ),
+            ),
+           
 
             'bf-date-start' => array(
 

@@ -9,7 +9,7 @@ $this->setup(array(
     'back' => true,
 ));
 
-echo $this->ajaxAwareScript('js/controller/square/booking/customization.min.js');
+    echo $this->ajaxAwareScript('js/controller/square/booking/customization.min.js');
 
 ?>
 
@@ -30,9 +30,12 @@ echo $this->ajaxAwareScript('js/controller/square/booking/customization.min.js')
     <div class="sandbox">
         <?= $this->squareQuantityChoice($square, $this->bookings) ?>
     </div>
+    
 
     <div class="separator separator-line"></div>
-
+    
+    
+    
     <?php
 
     $squareProducts = $this->squareProductChoice($square, $this->dateStart);
@@ -42,9 +45,13 @@ echo $this->ajaxAwareScript('js/controller/square/booking/customization.min.js')
         echo '<div class="sandbox">' . $squareProducts . '</div>';
         echo '<div class="separator separator-line"></div>';
     }
+    
 
     ?>
-
+    
+    
+     
+   
     <?php
 
     $url = $this->url('square/booking/confirmation', [], ['query' => [
@@ -59,7 +66,13 @@ echo $this->ajaxAwareScript('js/controller/square/booking/customization.min.js')
 
     echo sprintf('<a href="%s" id="sb-button" class="default-button squarebox-internal-link">%s</a>',
         $url, $this->t('Continue to summary'));
+    
+
 
     ?>
-
+    
+    
 </div>
+
+
+

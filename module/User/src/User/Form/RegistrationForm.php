@@ -870,7 +870,7 @@ class RegistrationForm extends Form
 
             'rf-lastname' => array(
 
-                'required' => false,
+                'required' => true,
 
                 'filters' => array(
 
@@ -1123,7 +1123,7 @@ class RegistrationForm extends Form
                     array('name' => 'StringTrim'),
 
                 ),
-                'required' => false,
+                'required' => true,
 
                 'validators' => array(
 

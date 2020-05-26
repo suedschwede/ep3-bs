@@ -31,7 +31,7 @@ class Create extends AbstractPlugin
         $this->connection = $connection;
     }
 
-    public function __invoke($user, $timeStart, $timeEnd, $dateStart, $dateEnd, $repeat, $square, $statusBilling, $quantity, $notes = null, $creator = null)
+    public function __invoke($user, $timeStart, $timeEnd, $dateStart, $dateEnd, $repeat, $square, $statusBilling, $quantity, $playerNamesText,$notes = null, $creator = null)
     {
         $controller = $this->getController();
 
@@ -108,7 +108,12 @@ class Create extends AbstractPlugin
                 $bookingMeta['time_end'] = $timeEnd;
                 $bookingMeta['repeat'] = $repeat;
             }
-
+            
+            $playerNames = explode("\n", $playerNamesText);
+	    $playerNames = array_map(function ($name) { return ['value' => $name]; }, $playerNames);
+			
+	    $bookingMeta['player-names'] = serialize($playerNames);
+            
             $bookingMeta['notes'] = $notes;
             $bookingMeta['creator'] = $creator;
 

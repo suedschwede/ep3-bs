@@ -146,7 +146,7 @@ class QuantityChoice extends AbstractHelper
 
 
 
-                $html .= sprintf('<input type="text" name="sb-player-name-%1$s" id="sb-name-%1$s" value="" placeholder="%1$s. %2$s" style="min-width: 160px;">',
+                $html .= sprintf('<input type="text" name="sb-player-name-%1$s" class="ui-autocomplete-input" data-autocomplete-url="/public/backend/user/interpret" id="sb-name-%1$s" autocomplete="off" placeholder="%1$s. %2$s" style="min-width: 160px;">',
 
                     $i, $this->view->translate('Player\'s name'));
 
@@ -187,8 +187,7 @@ class QuantityChoice extends AbstractHelper
             $html .= '</div>';
 
         }
-
-
+        
 
         return $html;
 

@@ -75,9 +75,7 @@ $this->setup(array(
                         </div>
                     <?php endif; ?>
                 </div>
-            </td>
-
-            <td>
+        
                 <div class="sandbox">
                     <table class="default-table">
                         <tr>
@@ -121,6 +119,7 @@ $this->setup(array(
                         <?= $this->formRowCompact($form, 'bf-sid') ?>
                         <?= $this->formRowCompact($form, 'bf-status-billing') ?>
                         <?= $this->formRowCompact($form, 'bf-quantity') ?>
+                        <?= $this->formRowCompact($form, 'bf-playernames') ?>
                     </table>
                 </div>
             </td>
@@ -202,7 +201,7 @@ $this->setup(array(
 
     <div id="bf-url-provider"
          data-user-autocomplete-url="<?= $this->url('backend/user/interpret') ?>"></div>
-
+     
     <div id="bf-tag-provider"
         data-edit-mode-tag="<?= $this->editMode ?>"></div>
 </div>
