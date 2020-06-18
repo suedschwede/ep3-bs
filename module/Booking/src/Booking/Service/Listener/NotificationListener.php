@@ -146,14 +146,14 @@ class NotificationListener extends AbstractListenerAggregate
 
         foreach ($possibleBookings as $bid => $booking2) {
           if ($booking2->need('uid') != $booking->need('uid')) {
-            $square1 = $this->squareManager->get($booking2->need('sid'));
-            if ($square1) {
-              if ($square1->need('name') == $square->need('name')) {
-                $booking1 = $booking2;
+            if ($booking2->need('status') != 'cancelled') {
+              $square1 = $this->squareManager->get($booking2->need('sid'));
+              if ($square1) {
+                if ($square1->need('name') == $square->need('name'))  {
+                  $booking1 = $booking2;
+                }
               }
-            }
-
-           
+            }  
           }
 
         }
@@ -299,13 +299,14 @@ class NotificationListener extends AbstractListenerAggregate
 
         foreach ($possibleBookings as $bid => $booking2) {
           if ($booking2->need('uid') != $booking->need('uid')) {
-            $square1 = $this->squareManager->get($booking2->need('sid'));
-            if ($square1) {
-              if ($square1->need('name') == $square->need('name')) {
-                $booking1 = $booking2;
+            if ($booking2->need('status') != 'cancelled') {
+              $square1 = $this->squareManager->get($booking2->need('sid'));
+              if ($square1) {
+                if ($square1->need('name') == $square->need('name'))  {
+                  $booking1 = $booking2;
+                }
               }
             }
-
            
           }
 
