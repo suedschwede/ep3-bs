@@ -74,21 +74,9 @@ class QuantityChoice extends AbstractHelper
 
        }        
 
-       // if ($quantityAvailable > 2) {
-       //   $html .= sprintf('<option value="4">4</option>', 3);
-       // }
-
-        //for ($i = 1; $i <= $quantityAvailable; $i++) {
-
-        //    $html .= sprintf('<option value="%1$s">%1$s</option>', $i);
-
-        //}
-
-        
-
         $html .= '</select>';
 
-
+       
 
         $quantityOccupied = $square->need('capacity') - $quantityAvailable;
 

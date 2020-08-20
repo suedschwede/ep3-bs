@@ -80,6 +80,8 @@ class OccupiedForPrivileged extends AbstractHelper
               }
             }
 
+            $notes = $booking->getMeta('notes');
+
 
             if ($bookingStatusColor) {
 
@@ -90,6 +92,11 @@ class OccupiedForPrivileged extends AbstractHelper
                 $cellStyle = null;
 
             }
+
+              if ($notes) {
+              $cellStyle = 'outline: solid 3px #ff6600';
+            }
+
 
             $prefix = "";
             if ($quantity == 4) {

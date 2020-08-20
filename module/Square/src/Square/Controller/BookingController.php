@@ -104,6 +104,7 @@ class BookingController extends AbstractActionController
 
         $playerNamesParam = $this->params()->fromQuery('pn', 0);
 
+        $userNotes = $this->params()->fromPost('bf-user-notes');
 
 
         $serviceManager = $this->getServiceLocator();
@@ -356,6 +357,7 @@ class BookingController extends AbstractActionController
                 $bookingService->createSingle($user, $square, $quantityParam, $byproducts['dateStart'], $byproducts['dateEnd'], $bills, array(
 
                     'player-names' => serialize($playerNames),
+                    'notes' => $userNotes,
 
                 ));
 

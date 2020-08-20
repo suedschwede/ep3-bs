@@ -65,6 +65,8 @@ class OccupiedForVisitors extends AbstractHelper
               }
             }
 
+            $notes = $booking->getMeta('notes');
+
             $prefix = "";
             if ($quantity == 4) {
               $prefix = "Doppel ";
@@ -103,11 +105,15 @@ class OccupiedForVisitors extends AbstractHelper
 
                     }
 
-                    if ($userBooking) {
+                    
+                    if ($notes) {
+                      return $view->calendarCellLink($cellLabel, $view->url('square', [], $cellLinkParams), 'cc-comp' . $cellGroup);
+                    } elseif ($userBooking) {
                       return $view->calendarCellLink($cellLabel, $view->url('square', [], $cellLinkParams), 'cc-own' . $cellGroup);
                     } else {
                       return $view->calendarCellLink($cellLabel, $view->url('square', [], $cellLinkParams), 'cc-multiple' . $cellGroup);
                     }
+
 
                 case 'subscription':
 

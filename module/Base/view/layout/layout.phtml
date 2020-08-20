@@ -49,7 +49,6 @@
                 <div id="label-service"><?= $this->option('service.name.full') ?></div>
 
 
-
                 <?php if ($this->option('service.branding', 'true') == 'true'): ?>
 
                     <div id="branding">&raquo; <?= sprintf($this->t('Powered by %s'), '<a href="' . $this->option('service.branding.website') .'" target="_blank">' . $this->option('service.branding.name') . '</a>') ?></div>
@@ -61,8 +60,8 @@
                 <?php endif; ?>
 
             </div>
-
-
+            
+  
 
             <div id="topbar">
 
@@ -141,6 +140,10 @@
 
 
                 <div id="topbar-separator" class="responsive-pass-4"></div>
+                <div id="topbar-infos" class="responsive-pass-3">
+                   <span style="font-size:24pt;color:#ff6600"><a href="https://tcbewegung.at/index.php/allgemein/56-tennis-vereinsmeisterschaften" style="font-size:24pt;color:#ff6600" target="_blank">Vereinsmeisterschaften</a></span><br>
+                   <span class="light-gray">24.August - 6.September</span><br>
+                </div>
 
             </div>
 
