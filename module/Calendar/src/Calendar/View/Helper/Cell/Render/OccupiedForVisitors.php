@@ -105,7 +105,6 @@ class OccupiedForVisitors extends AbstractHelper
 
                     }
 
-                    
                     if ($notes) {
                       return $view->calendarCellLink($cellLabel, $view->url('square', [], $cellLinkParams), 'cc-comp' . $cellGroup);
                     } elseif ($userBooking) {
@@ -113,7 +112,6 @@ class OccupiedForVisitors extends AbstractHelper
                     } else {
                       return $view->calendarCellLink($cellLabel, $view->url('square', [], $cellLinkParams), 'cc-multiple' . $cellGroup);
                     }
-
 
                 case 'subscription':
 

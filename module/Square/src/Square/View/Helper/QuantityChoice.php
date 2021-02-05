@@ -72,11 +72,17 @@ class QuantityChoice extends AbstractHelper
           $html .= sprintf('<option value="1">1</option>', 2);
           $html .= sprintf('<option value="4">4</option>', 3);
 
-       }        
+       }   
 
-        $html .= '</select>';
+       $html .= '</select>';
 
-       
+       //$html .= '<select id="bf-notes" style="min-width: 64px;">';
+       //$html .= sprintf('<option value="">keine Vereinsmeisterschaft</option>', 1);
+       //$html .= sprintf('<option value="Vereinsmeisterschaft">Vereinsmeisterschaft</option>', 2);
+     
+        //$html .= '</select>';
+
+
 
         $quantityOccupied = $square->need('capacity') - $quantityAvailable;
 

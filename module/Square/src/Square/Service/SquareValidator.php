@@ -358,7 +358,7 @@ class SquareValidator extends AbstractService
                     {
                         if ($hoursBetweenBookings && $minDiffHours < $hoursBetweenBookings) {
                             $bookable = false;
-                            $notBookableReason = 'Es mï¿½ssen mindestens ' . $hoursBetweenBookings . ' Stunden zwischen 2 Buchnungen liegen.';
+                            $notBookableReason = 'Es müssen mindestens ' . $hoursBetweenBookings . ' Stunden zwischen 2 Buchnungen liegen.';
                         }
                     }
 
@@ -375,7 +375,7 @@ class SquareValidator extends AbstractService
                         }
 
                         if (!$bookable) {
-                            $notBookableReason = 'Sie kï¿½nnen derzeit nur <b>' . $maxActiveBookings . ' aktive Buchung(en)</b> plus eine Spontanbuchung gleichzeitig offen haben.' . "<br>"; // . $shortTermBookingStart->format(DateTime::ISO8601) . "<br>" . $shortTermBookingEnd->format(DateTime::ISO8601) . "<br>" . $dateStart->format(DateTime::ISO8601);
+                            $notBookableReason = 'Sie können derzeit nur <b>' . $maxActiveBookings . ' aktive Buchung(en)</b> plus eine Spontanbuchung gleichzeitig offen haben.' . "<br>"; // . $shortTermBookingStart->format(DateTime::ISO8601) . "<br>" . $shortTermBookingEnd->format(DateTime::ISO8601) . "<br>" . $dateStart->format(DateTime::ISO8601);
                         }
                     }
                 }

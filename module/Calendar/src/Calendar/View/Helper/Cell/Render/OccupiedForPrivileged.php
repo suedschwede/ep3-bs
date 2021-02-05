@@ -93,10 +93,9 @@ class OccupiedForPrivileged extends AbstractHelper
 
             }
 
-              if ($notes) {
+            if ($notes) {
               $cellStyle = 'outline: solid 3px #ff6600';
             }
-
 
             $prefix = "";
             if ($quantity == 4) {
